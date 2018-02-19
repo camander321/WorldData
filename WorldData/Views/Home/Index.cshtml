@@ -1,33 +1,46 @@
 @{
   Layout = "_Layout";
 }
+  <div class="container">
 
-  <div class="container">
-    <form action="/country" method="post">
-      <label for="country"></label>
-      <input name="country" placeholder="Enter country to search cities:" type="text">
-      <button type="submit" class="button">Submit</button>
-    </form>
-  </div>
-  <div class="container">
-    <form action="/pop" method="post">
-      <label for="minPop"></label>
-      <input name="minPop" placeholder="Search by population (lowest):" type="number">
-      <label for="maxPop"></label>
-      <input name="maxPop" placeholder="Search by population (highest):" type="number">
-      <button type="submit" class="button">Submit</button>
+    <form class="form-group" id="formId" action="/" method="post">
+      <div class="form-group">
+        <select class="searchOption" name="searchOption">
+          <option value="all">All</option>
+          <option value="name">Name</option>
+          <option value="continent">Continent</option>
+          <option value="pop">Population</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div id="inputs" class="form-group col-md-4">
+
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
+
+
+      <div class="row form-group">
+        <button type="submit" class="btn btn-info">Submit</button>
+      </div>
+
+
+
     </form>
   </div>
 
 <h2>Index Stuff Goes Here</h2>
-<ul>
-  @foreach(var city in @Model)
+<div>
+  @foreach(var country in @Model)
   {
-    <li>
-      <h5>@city.cityName</h5>
-      <h6>State: @city.cityDistrict</h6>
-      <h6>Country: @city.cityCountryCode</h6>
-      <h6>Population: @city.cityPopulation</h6>
-    </li>
+    <div>
+      <h4>@country.countryName</h4>
+      <h6>Continent: @country.countryContinent</h6>
+      <h6>Capital: @country.countryCapital</h6>
+      <h6>Population: @country.countryPop</h6>
+    </div>
   }
-</ul>
+</div>

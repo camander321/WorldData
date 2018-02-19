@@ -53,6 +53,11 @@ namespace WorldData.Models
       return GetCities(@"SELECT * FROM city");
     }
 
+    public static List<City> GetFromId(int id)
+    {
+      return GetCities(@"SELECT * FROM city WHERE id LIKE '" + id + "'");
+    }
+
     public static List<City> GetPop(int min = 0, int max = 99999999)
     {
       return GetCities(@"SELECT * FROM city WHERE population >= " + min + " AND population <= " + max);

@@ -1,3 +1,19 @@
 body {
   background-color: lightgray;
+  background-image: url("https://media.giphy.com/media/KxpYqfNWnTm5W/giphy.gif");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  list-style: none;
+}
+
+ul {
+  list-style: none;
+}
+
+select, button, input {
+  color: black;
 }

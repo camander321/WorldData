@@ -9,22 +9,35 @@ namespace WorldData.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View("Index", City.GetAll());
+      return View("Index", Country.GetAll());
     }
 
-    [HttpPost("/country")]
-    public ActionResult Country()
+    [HttpPost("/")]
+    public ActionResult All()
     {
-      string countryCheck = Request.Form["country"];
-      return View("Index", City.GetCountry(countryCheck));
+      return View("Index", Country.GetAll());
+    }
+
+    [HttpPost("/name")]
+    public ActionResult Name()
+    {
+      string countryCheck = Request.Form["input1"];
+      return View("Index", Country.GetName(countryCheck));
+    }
+
+    [HttpPost("/continent")]
+    public ActionResult Continent()
+    {
+      string countryCheck = Request.Form["input1"];
+      return View("Index", Country.GetContinent(countryCheck));
     }
 
     [HttpPost("/pop")]
     public ActionResult Population()
     {
-      int minPopCheck = int.Parse(Request.Form["minPop"]);
-      int maxPopCheck = int.Parse(Request.Form["maxPop"]);
-      return View("Index", City.GetPop(minPopCheck, maxPopCheck));
+      int minPopCheck = int.Parse(Request.Form["input1"]);
+      int maxPopCheck = int.Parse(Request.Form["input2"]);
+      return View("Index", Country.GetPop(minPopCheck, maxPopCheck));
     }
   }
 }
