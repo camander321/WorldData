@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 
-namespace Project
+namespace WorldData
 {
     public class Startup
     {
@@ -26,6 +26,7 @@ namespace Project
         {
             app.UseMvc(routes =>
             {
+                app.UseDeveloperExceptionPage();
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
@@ -36,5 +37,10 @@ namespace Project
                 await context.Response.WriteAsync("Something went horribly wrong :0");
             });
         }
+    }
+
+    public static class DBConfiguration
+    {
+      public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=world;";
     }
 }
